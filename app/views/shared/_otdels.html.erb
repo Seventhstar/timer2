@@ -1,0 +1,18 @@
+ 
+<div id="otdels_list" class="dropdown clearfix">
+            
+<ul class="dropdown-menu-otdel" role="menu" aria-labelledby="dropdownMenu">
+<% for otdel in @otdels %>
+ 
+ 
+    <li><a tabindex="-1" href="#" class="otdel" id="<%= otdel.name %>" otdel_id="<%= otdel.id %>"><%= otdel.name %></a></li>
+     
+<% end %>
+</ul>
+</div>
+
+<div id="new_otdel">
+		<span>Новый отдел: </span>
+		<%= text_field_tag "name_otdel", "" %>
+		<span class="btn btn-info new_otdel"><i class="icon-ok"></i></span>
+</div>

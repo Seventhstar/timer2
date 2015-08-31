@@ -1,0 +1,14 @@
+﻿<div class="panel panel-default">
+  <div class="panel-heading table-heading"><%= @header %></div>
+  <table class="table table-striped" model="Element">
+    <tbody>
+     <% @cur_goals.each do |goal| %>
+     <tr>
+      <td><%= goal.name %></td>
+      <td><%= goal.start_date.try('strftime','%d.%m.%y') %></td>
+      <td class="edit_delete"><span class="icon edit" item_id="8"></span><span class="icon delete" item_id="8"></span></td>
+     </tr>
+     <% end %>
+    </tbody>
+  </table>
+</div>

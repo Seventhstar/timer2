@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ToDo & Time manager  </title>
+  <%= javascript_include_tag "application" %> 
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+
+<div class="container-all">
+
+<% if current_user %>
+  <%= render "menu" %>
+<% end %>
+
+
+<div class="container bs-docs-container">
+
+<div class="js-notes has-note">
+  <%= flash_messages %>
+  <a class="close note-close" href="#"></a>
+</div>
+
+	<%= yield %>
+</div>
+
+</body>
+</html>

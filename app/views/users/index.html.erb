@@ -1,0 +1,37 @@
+<div class="box_wrap">
+<%= link_to 'Добавить пользователя', new_user_path, class: "btn_a btn-add right" %>
+</div>
+<div class="sep_1"></div>
+
+<div class="items_box_cont tbl_a">
+<div class="head">Список пользователей</div>
+<table class="tleads user-table">
+  <thead>
+    <tr>
+      <th>Пользователь</th>
+      <th width="60px" class="center">Админ</th>      
+      <th width="30px"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <!-- %= render @users %> -->
+<% @users.each do |user| %>
+<tr >
+  <td>  <%= link_to user.email, user %> </td>
+  <td class="state"><span class="check_img <%= user.admin ? "checked" :"" %>" userid="<%=user.id%>" chk="admin"></span></td>
+  
+  <% if is_admin? %>
+     <%= edit_delete(user, current_user?(user) ? 1:nil ) %>
+  <% else %>
+    <td></td>
+  <% end %>
+  
+</td>
+</tr>
+<% end %>
+
+</tbody>
+</table>
+</div>

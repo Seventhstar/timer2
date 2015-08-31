@@ -1,0 +1,2 @@
+module OtdelsHelper
+end

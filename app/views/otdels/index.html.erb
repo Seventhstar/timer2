@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Otdels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @otdels.each do |otdel| %>
+      <tr>
+        <td><%= otdel.name %></td>
+        <td><%= link_to 'Show', otdel %></td>
+        <td><%= link_to 'Edit', edit_otdel_path(otdel) %></td>
+        <td><%= link_to 'Destroy', otdel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Otdel', new_otdel_path %>

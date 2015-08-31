@@ -1,0 +1,16 @@
+ 
+<div id="tasks_list" class="dropdown clearfix">
+            
+<ul class="dropdown-menu-otdel" role2="menu" aria-labelledby1="dropdownMenu" data-toggle="buttons-radio">
+<% for task in @tasks %>
+    <span class="btn btn btn-block task" task_id="<%= task.id %>"><%= task.name %></span>
+<% end %>
+</ul>
+</div>
+
+<%= hidden_field "task_id","" %>
+<div id="new_task">
+		<span>Новый вид действия: </span>
+		<%= text_field_tag "name_task", "" %>
+		<span class="btn btn-info new_task"><i class="icon-ok"></i></span>
+</div>
