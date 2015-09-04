@@ -1,15 +1,13 @@
 <div class="all_goals">
 <div class="col-lg-4">
-<% @cur_goals= @goals_past %>
-<% @header = 'Вчера '%>
-<%= render 'goals'%>
+  <div id='goals_past'> 
+    <%= render 'goals_past'%>
+  </div>
 </div>
 
 <div class="col-lg-4" >
-<% @cur_goals= @goals_today %>
-<% @header = 'Сегодня '%>
 <div id='goals_today'> 
-  <%= render 'goals'%>
+    <%= render 'goals_today'%>
 </div>
 
 <%= form_for(@goal) do |f| %>
@@ -24,9 +22,9 @@
 </div>
 
 <div class="col-lg-4">
-<% @cur_goals= @goals_next %>
-<% @header = 'Завтра '%>
-<%= render 'goals'%>
+  <div id='goals_next'> 
+    <%= render 'goals_next'%>
+  </div>
 </div>
 </div>
 
@@ -52,6 +50,7 @@
       <td><%= goal.fixed %></td>
       <td><%= goal.personal %></td>
       <td><%= goal.start_date %></td>
+      
       <td><%= link_to 'Show', goal %></td>
       <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
       <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>

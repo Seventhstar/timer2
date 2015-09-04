@@ -19,6 +19,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    Task.find(params[:id]).destroy
+    flash[:success] = "удален"
+    redirect_to tasks_url
+  end
+
   private
 
     def task_params

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post "ajax/save_last_time"
   post "ajax/save_new_otdel"
   post "ajax/save_new_task"
-
+  post "ajax/upd_param"
   root :to => "used_times#index"
 
 

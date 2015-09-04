@@ -4,8 +4,8 @@ class CreateGoals < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :user_id
-      t.boolean :fixed
-      t.boolean :personal
+      t.boolean :fixed, :default => false
+      t.boolean :personal,:default => false
       t.datetime :start_date
 
       t.timestamps null: false

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require jquery-ui
  *= require_self
  */
 
@@ -96,3 +97,14 @@ td.editable{padding: 5px !important; }
 
 }
 
+.caption{ float: left; font-weight: bold; margin-right: 5px;}
+.inp_dt{ width:130px; float: left; margin-right: 20px;}
+.inp_ch{ width:130px; float: left; margin-right: 20px;}
+.inp_ch input[type="checkbox"]{ width:30px; float: left; }
+.inp_w{  float: left; margin-right: 20px;}
+.inp_ch input[type="text"]{ float: left; }
+
+span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;     width: 16px;  height: 16px;}
+span.check_img.checked{background: url('check.png') no-repeat;}
+
+.td_chk{width: 16px;}

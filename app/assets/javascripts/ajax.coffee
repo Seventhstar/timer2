@@ -2,6 +2,21 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+@addParam = (url, param, value) ->
+  a = document.createElement('a')
+  regex = /[?&]([^=]+)=([^&]*)/g
+  match = undefined
+  str = []
+  a.href = url
+  value = value or ''
+  while match = regex.exec(a.search)
+    if encodeURIComponent(param) != match[1]
+      str.push match[1] + '=' + match[2]
+  str.push encodeURIComponent(param) + '=' + encodeURIComponent(value)
+  a.search = (if a.search.substring(0, 1) == '?' then '' else '?') + str.join('&')
+  a.href
+
+
 
 @upd_param = (param)->
   $.ajax
@@ -36,11 +51,25 @@
 $(document).ready ->
 
 # редактирование данных в таблице
+  $('.container').on 'click', 'span.check_img', ->
+    item_id = $(this).attr('item_id')
+    chk = $(this).attr('chk')
+    model = $(this).closest('table').attr('model')
+    if $(this).hasClass('checked')
+      $(this).removeClass 'checked'
+      checked = false
+    else
+      checked = true
+      $(this).addClass 'checked'    
+    upd_p = {chk: checked}
+    alert addParam('','upd',upd_p)
+    upd_param('upd='+upd_p+'&model='+model+'&id='+item_id)
+
   $('.container').on 'click', 'span.edit', ->
     item_id = $(this).attr('item_id')
     $row = $(this).parents('')
     disable_input()
-    $cells = $row.children('td').not('.edit_delete')
+    $cells = $row.children('td').not('.edit_delete').not('.td_chk')
     table = $(this).closest('table')
     $cells.each ->
       _cell = $(this)

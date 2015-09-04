@@ -88,6 +88,9 @@ $(function() {
   });
   $('table.tableSorter').tableSort();
 
+  //$('.datepicker').on('click', $(this).datetimepicker({value:'2011/12/11 12:00'}));
+  $('.datepicker').datetimepicker({step:5});
+
 
   //var table = document.getElementById('edit');
   //var table = $('.table').click();

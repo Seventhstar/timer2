@@ -1,5 +1,16 @@
 module ApplicationHelper
 
+#  def elem_by_attr(item,attr)
+#    case item.class.column_types[attr.to_s].class
+#    when ActiveRecord::Type::Boolean
+#    when ActiveRecord::Type::DateTime
+#    else
+#      <td><%= item[attr[0]] %></td>
+#    end
+#     
+#  end
+
+
   def is_admin?
     current_user.try(:admin?)
   end
