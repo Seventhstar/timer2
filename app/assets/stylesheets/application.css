@@ -104,7 +104,9 @@ td.editable{padding: 5px !important; }
 .inp_w{  float: left; margin-right: 20px;}
 .inp_ch input[type="text"]{ float: left; }
 
-span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;     width: 16px;  height: 16px;}
-span.check_img.checked{background: url('check.png') no-repeat;}
+span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;  background: url('uncheck.png') no-repeat;   width: 16px;  height: 16px;}
+span.check_img.checked{background: url('check-gr.png') no-repeat;}
 
 .td_chk{width: 16px;}
+
+tr.checked {color: #aaa; text-decoration: line-through;}

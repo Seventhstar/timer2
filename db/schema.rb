@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824141602) do
+ActiveRecord::Schema.define(version: 20150905032155) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 20150824141602) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.boolean  "fixed", default: false
-    t.boolean  "personal", default: false
+    t.boolean  "fixed",       default: false
+    t.boolean  "personal",    default: false
     t.datetime "start_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "otdels", force: :cascade do |t|
@@ -65,9 +65,13 @@ ActiveRecord::Schema.define(version: 20150824141602) do
     t.string   "email"
     t.string   "password_digest"
     t.boolean  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "remember_digest"
+    t.string   "name"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
   end
 
   create_table "ut_types", force: :cascade do |t|

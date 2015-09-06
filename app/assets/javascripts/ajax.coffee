@@ -55,15 +55,20 @@ $(document).ready ->
     item_id = $(this).attr('item_id')
     chk = $(this).attr('chk')
     model = $(this).closest('table').attr('model')
+    tr = $(this).parents('tr')
     if $(this).hasClass('checked')
       $(this).removeClass 'checked'
+      tr.removeClass 'checked'
       checked = false
     else
       checked = true
       $(this).addClass 'checked'    
-    upd_p = {chk: checked}
-    alert addParam('','upd',upd_p)
-    upd_param('upd='+upd_p+'&model='+model+'&id='+item_id)
+      tr.addClass 'checked'
+    upd={}
+    upd_p = {}
+    upd_p[chk] = checked
+    upd['upd']=upd_p
+    upd_param(decodeURIComponent($.param(upd))+'&model='+model+'&id='+item_id)
 
   $('.container').on 'click', 'span.edit', ->
     item_id = $(this).attr('item_id')
