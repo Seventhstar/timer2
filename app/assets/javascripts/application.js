@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.toolbar
 //= require_tree .
 
 var showNotifications = function(){ 
@@ -122,7 +123,6 @@ $(function() {
     var values = $('form').serialize();
     var url = $('form').attr('action');
     var empty_name = false;
-    //alert(values);
     each(q2ajx(values), function(i, a) {
       if (i.indexOf("[name]") >0  && a=="" ) { empty_name = true; return false; }
     });
@@ -134,7 +134,7 @@ $(function() {
           data: valuesToSubmit,
           dataType: 'JSON',  
           beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},         
-          success: function(){$.get(url, null, null, "script");}
+          success: function(){$.get(url, null, null, "script"); $('input[name*=name]').val('');}
       });
     }
   });

@@ -4,27 +4,18 @@
 
 
 $(document).ready ->
-  $(document).on 'click', '#btn-send', ->
-    valuesToSubmit = $('form').serialize()
-    values = $('form').serialize()
-    url = $('form').attr('action')
-    return empty_name = false
-    each q2ajx(values), (i, a) ->
-      if i.indexOf('[name]') > 0 and a == ''
-        empty_name = true
-        return false
+  $('.btn-toolbar').toolbar( {content: '#toolbar-options',animation: 'grow', event: 'click', hideOnClick: 'false'} );
+  $('.tool-items a').on 'click', (event) ->
+      #alert(event)
+      event.preventDefault()
       return
-    if !empty_name
-      $.ajax
-        url: url
-        data: valuesToSubmit
-        dataType: 'json'
-        type: 'POST'
-        complete: ->
-          $.get url, null, null, 'script'
-          alert $('input[name^=name]')
-          return
+  $('.settings-button').toolbar    
+    content: '#user-options'
+    position: 'bottom'
+  $('.btn-toolbar').on 'toolbarItemClick', (e, el) ->
+    #alert(12333)
+    alert(e.target.attributes.getNamedItem('item_id').nodeValue)
+    if el.href
+      window.location.href = el.href
     return
-  return
 
-  

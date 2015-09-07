@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150905032155) do
     t.text     "description"
     t.integer  "user_id"
     t.boolean  "fixed",       default: false
-    t.boolean  "personal",    default: false
+    t.boolean  "personal"
     t.datetime "start_date"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
