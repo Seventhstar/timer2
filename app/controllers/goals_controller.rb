@@ -1,4 +1,5 @@
 class GoalsController < ApplicationController
+  respond_to :html, :json
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
 
   # GET /goals
@@ -24,6 +25,7 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/edit
   def edit
+    respond_modal_with @goal, location: root_path
   end
 
   # POST /goals

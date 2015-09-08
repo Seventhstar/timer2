@@ -12,3 +12,9 @@ label {margin-right: 10px;}
 
 .table-heading {  font-weight: bold;}
 
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin:0;
+    /* margin: 10px; */
+}

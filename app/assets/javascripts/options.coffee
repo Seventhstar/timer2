@@ -5,7 +5,8 @@
 $(document).ready ->
 # удаляем элемент справочника
   $(document).on 'click', 'span.delete', ->
-    url = $('form').attr('action')
+    #url = $('form').attr('action')
+    url = '/'+$('form').attr('action').split('/')[1]      
     item_id = $(this).attr('item_id')
     del_url = url + '/' + item_id
     del = confirm('Действительно удалить?')

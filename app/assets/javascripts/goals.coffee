@@ -2,20 +2,42 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+@toolbar_pressed = (e,el) ->
+    item_id = e.target.attributes.getNamedItem('item_id').nodeValue
+    url = '/'+$('form').attr('action').split('/')[1]      
+    if el.firstChild.className=='icon toolbar-delete'
+      del_url = url + '/' + item_id
+      del = confirm('Действительно удалить?')
+      if !del
+        return
+      $.ajax
+        url: del_url
+        data: '_method': 'delete'
+        dataType: 'json'
+        type: 'POST'
+        complete: ->
+          $.get url, null, null, 'script'
+          return
+      $('.animate-grow').hide()
+      return
+    else if el.firstChild.className=='icon toolbar-edit'
+      location = url+'/'+item_id+'/edit'
+      $('.animate-grow').hide()
+      $('#modal-holder').spin("modal")
+      $.get location, (data)->
+        $('#modal-holder').html(data).
+        find('.modal').modal()
+        return
+      return
+
+    #if el.href
+    #  window.location.href = el.href
+    #return
+
 
 $(document).ready ->
-  $('.btn-toolbar').toolbar( {content: '#toolbar-options',animation: 'grow', event: 'click', hideOnClick: 'false'} );
-  $('.tool-items a').on 'click', (event) ->
-      #alert(event)
-      event.preventDefault()
-      return
-  $('.settings-button').toolbar    
-    content: '#user-options'
-    position: 'bottom'
+  $('.btn-toolbar').toolbar( {content: '#toolbar-options', animation: 'grow', event: 'click', hideOnClick: 'true'} );
   $('.btn-toolbar').on 'toolbarItemClick', (e, el) ->
-    #alert(12333)
-    alert(e.target.attributes.getNamedItem('item_id').nodeValue)
-    if el.href
-      window.location.href = el.href
+    toolbar_pressed(e,el)
     return
-
+  

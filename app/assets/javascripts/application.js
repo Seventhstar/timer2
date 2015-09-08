@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.toolbar
+//= require spin
+//= require jquery.spin
+//= require nprogress
 //= require_tree .
 
 var showNotifications = function(){ 
@@ -83,26 +86,25 @@ var add_timer_function = function(){
 
 $(function() {
 
+  NProgress.configure({
+    showSpinner: false,
+    ease: 'ease',
+    speed: 300
+  });
+
+  NProgress.start();
+  NProgress.done();
+
+  $( document ).ajaxStop(function() {
+      NProgress.start();
+  });  
   $( document ).ajaxStop(function() {
     $('table.tableSorter').tableSort();
-
+    NProgress.done();
   });
+
   $('table.tableSorter').tableSort();
-
-  //$('.datepicker').on('click', $(this).datetimepicker({value:'2011/12/11 12:00'}));
   $('.datepicker').datetimepicker({step:5});
-
-
-  //var table = document.getElementById('edit');
-  //var table = $('.table').click();
-  /*$('td').click(function()    {
-        var td_val = $(this).html();
-        var input_field = $('<input type="text" id="edit" value="' + td_val + '" />');
-        $(this).html(input_field);
-        $(input).focus();
-    });*/
-
-
 
   $('#lay_el_element_id').chosen();
   $('#wh_el_element_id').chosen();
