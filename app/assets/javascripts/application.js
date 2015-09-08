@@ -108,6 +108,7 @@ $(function() {
 
   $('#lay_el_element_id').chosen();
   $('#wh_el_element_id').chosen();
+  $('#goal_user_id').chosen();
 
 
   $('.options-menu a').click(function(){ 

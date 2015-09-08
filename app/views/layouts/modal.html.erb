@@ -7,9 +7,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon icon_close"></span></button>
         </div>        
 
-        <h4 class="hl hl_a bd" id="mainModalLabel">
-          <%= @title if @title %>
-        </h4>
+        <h4 class="hl hl_a bd" id="mainModalLabel"><%= @title if @title %></h4>
       </div>
       <div class="ajax-loader"></div>
       <%= yield %>

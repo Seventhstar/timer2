@@ -36,7 +36,7 @@
 
 
 $(document).ready ->
-  $('.btn-toolbar').toolbar( {content: '#toolbar-options', animation: 'grow', event: 'click', hideOnClick: 'true'} );
+  $('.btn-toolbar').toolbar( {content: '#toolbar-options', animation: 'none', event: 'click', hideOnClick: 'true'} );
   $('.btn-toolbar').on 'toolbarItemClick', (e, el) ->
     toolbar_pressed(e,el)
     return

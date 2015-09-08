@@ -113,3 +113,25 @@ span.check_img.checked{background: url('check-gr.png') no-repeat;}
 .td_chk{width: 16px;}
 
 tr.checked {color: #aaa; text-decoration: line-through;}
+.hl_a.bd {
+    border-bottom: 2px solid #e5e5e5;
+    padding: 0 0 16px 0;
+    margin: 0 0 15px 0;
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+}
+
+.icon_close {
+    background-position: -52px -35px;
+    width: 16px;
+    height: 16px;
+}
+
+.field { float: left; display: inline-block; width: 100%; }
+.sep_1 {height: 10px; }

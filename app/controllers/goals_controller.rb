@@ -20,11 +20,13 @@ class GoalsController < ApplicationController
 
   # GET /goals/new
   def new
+    
     @goal = Goal.new
   end
 
   # GET /goals/1/edit
   def edit
+    @title = 'Редактирование задачи'
     respond_modal_with @goal, location: root_path
   end
 

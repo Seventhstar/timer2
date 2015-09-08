@@ -6,14 +6,19 @@
   </div>
   <div class="field">
     <%= f.label t :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, style: 'height: 110px;' %>
   </div>
+    <div class="field left">
+    <div class="caption"><%= t :start_date %>:</div>
+    <div class="inp_dt"><%= f.text_field :start_date,:value => @goal.start_date.try('strftime',"%d.%m.%Y %H:%M"), label: false, class: "txt datepicker" %></div>
+    
   <div class="inp_w">
-    <div class="caption">Пользователь:</div>
     <div class="left">
     <%= f.select :user_id, options_for_select(User.all.collect{ |u| [u.email, u.id] },@goal.user_id || 1) %>
     </div>
+    </div>
   </div>
+  <div class="field">
   <div class="inp_ch">
     <div class="caption">Выполнена:</div>
     <%= f.check_box :fixed %>
@@ -22,11 +27,9 @@
     <div class="caption">Личная:</div>
     <%= f.check_box :personal %>
   </div>
-  <div class="field">
-    <div class="caption"><%= t :start_date %>:</div>
-    <div class="inp_dt"><%= f.text_field :start_date,:value => @goal.start_date.try('strftime',"%d.%m.%Y %H:%M"), label: false, class: "txt datepicker" %>
   </div>
+<div class="sep_1"></div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Сохранить', :class => 'btn btn-success'%>
   </div>
 <% end %>
