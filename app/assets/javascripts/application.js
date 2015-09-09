@@ -95,7 +95,7 @@ $(function() {
   NProgress.start();
   NProgress.done();
 
-  $( document ).ajaxStop(function() {
+  $( document ).ajaxStart(function() {
       NProgress.start();
   });  
   $( document ).ajaxStop(function() {
