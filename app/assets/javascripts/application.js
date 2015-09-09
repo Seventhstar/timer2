@@ -101,6 +101,7 @@ $(function() {
   $( document ).ajaxStop(function() {
     $('table.tableSorter').tableSort();
     NProgress.done();
+    $('.datepicker').datetimepicker({step:5});
   });
 
   $('table.tableSorter').tableSort();

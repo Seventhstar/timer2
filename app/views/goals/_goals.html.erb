@@ -18,8 +18,10 @@
       <% if @header!='Сегодня' %>
         <td><%= goal.start_date.try('strftime','%d.%m.%y') %></td>
       <% end -%>
-      <td class="edit_delete"><span class="icon edit" item_id="<%= goal.id %>"></span>
-       <div class="btn-toolbar btn-toolbar-light right" item_id="<%= goal.id %>"></div>
+      <td class="edit_delete">
+       
+       <span class="icon edit" item_id="<%= goal.id %>"></span>
+       <span class="btn-toolbar icon btn-toolbar-light left" item_id="<%= goal.id %>"></span>
      </td>
 
      </tr>
@@ -29,8 +31,14 @@
 </div>
 
 <div id="toolbar-options" class="hidden">
- <a href="#"><i class="fa fa-plane"></i></a>
- <a href="#"><i class="fa fa-car"></i></a>
+ <a href="#"><span class="icon toolbar-work"></a>
+ <a href="#"><span class="icon toolbar-right"></a>
+ 
+ <% if @header != 'Сегодня' %>
+ <a href="#"><span class="icon toolbar-down"></a>
+ <% end -%>
+
  <a href="#"><span class="icon toolbar-edit" data-modal="true"></a>
  <a href="#"><span class="icon toolbar-delete"></a>
 </div>
+

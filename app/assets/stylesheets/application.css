@@ -79,9 +79,17 @@ span.icon:hover{ cursor: pointer; }
 
 span.delete,span.toolbar-delete{ background: url('delete.png') no-repeat;  }
 
-span.edit,span.toolbar-edit {background: url('edit.png') no-repeat;}
+span.toolbar-right{ background: url('right.png') no-repeat;  }
+span.toolbar-down{ background: url('down.png') no-repeat;  }
+span.toolbar-work{ background: url('work.png') no-repeat;  }
+
+span.edit {background: url('_edit.png') no-repeat;}
+span.toolbar-edit {background: url('edit.png') no-repeat;}
+
 span.icon_apply{background: url('apply.png') no-repeat;}
 span.icon_cancel{background: url('cancel.png') no-repeat;}
+
+.edit_delete .btn-toolbar {margin-top: 1px;}
 
 td.editable{padding: 5px !important; }
 

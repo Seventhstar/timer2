@@ -67,7 +67,7 @@ $(document).ready ->
     upd={}
     upd_p = {}
     upd_p[chk] = checked
-    upd['upd']=upd_p
+    upd['upd'] = upd_p
     upd_param(decodeURIComponent($.param(upd))+'&model='+model+'&id='+item_id)
 
   $('.container').on 'click', 'span.edit', ->

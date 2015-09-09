@@ -1,5 +1,5 @@
 $("#goals_today").html("<%= escape_javascript(render("goals_today")) %>");
 $("#goals_past").html("<%= escape_javascript(render("goals_past")) %>");
 $("#goals_next").html("<%= escape_javascript(render("goals_next")) %>");
-$('.btn-toolbar').toolbar ({content: '#toolbar-options',animation: 'grow', event: 'click', hideOnClick: 'false'});
+$('.btn-toolbar').toolbar ({content: '#toolbar-options',animation: 'none',  hideOnClick: 'false'});
 $('.btn-toolbar').on( 'toolbarItemClick',function(e, el){ toolbar_pressed(e,el)});

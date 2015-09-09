@@ -7,7 +7,7 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.all
     @goals_today = Goal.where("start_date between ? and ?",Date.today, DateTime.now.end_of_day )
-    @goals_past = Goal.where("start_date < ?",Date.today )
+    @goals_past = Goal.where("start_date < ? ",Date.today ).where(fixed: false)
     @goals_next = Goal.where("start_date > ?",DateTime.now.end_of_day )
     @item = Goal.first
     @goal = Goal.new

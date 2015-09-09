@@ -2,6 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+
+@goal_modify = (method, id)->
+  $.ajax
+      url: '/ajax/'+method
+      data: 'id':id
+      type: 'POST'
+      beforeSend: (xhr) ->
+        xhr.setRequestHeader 'X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')
+        return
+      success: ->
+        $.get 'goals', null, null, 'script'
+        show_ajax_message('успешно','notice')
+     return
+
 @toolbar_pressed = (e,el) ->
     item_id = e.target.attributes.getNamedItem('item_id').nodeValue
     url = '/'+$('form').attr('action').split('/')[1]      
@@ -28,15 +42,18 @@
         $('#modal-holder').html(data).
         find('.modal').modal()
         return
-      return
-
+    else if el.firstChild.className=='icon toolbar-down'      
+      goal_modify('goal_today',item_id)
+    else if el.firstChild.className=='icon toolbar-right'      
+      goal_modify('goal_tomorrow',item_id)      
+      
     #if el.href
     #  window.location.href = el.href
     #return
 
 
 $(document).ready ->
-  $('.btn-toolbar').toolbar( {content: '#toolbar-options', animation: 'none', event: 'click', hideOnClick: 'true'} );
+  $('.btn-toolbar').toolbar( {content: '#toolbar-options', animation: 'none',  hideOnClick: 'true'} );
   $('.btn-toolbar').on 'toolbarItemClick', (e, el) ->
     toolbar_pressed(e,el)
     return
