@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.all_goals{
-	display: block; width: auto; overflow:auto;
-}
+.all_goals{	display: block; width: auto; overflow:auto; }
+tr.checked {color: #aaa; text-decoration: line-through;}
+tr.personal {background-color: #6C9897;  color: white;} //#638B8D;  839C99 - светлее - 9AADAF
+tr.personal:nth-child(odd){background-color: #638B8D !important;  color: white;}
+tr.personal td:first-child { padding-left: 20px;}
+.personal.checked{color: #ccc;}
+
+span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;  background: url('uncheck.png') no-repeat;   width: 16px;  height: 16px;}
+span.check_img.checked{background: url('check-gr.png') no-repeat;}
+.personal span.check_img {background: url('uncheck-wh.png') no-repeat;}
+.personal span.check_img.checked {background: url('check-wh.png') no-repeat;}
+
+
+.all_goals .col-lg-4:nth-child(2) { padding-left: 0 !important;}
+.all_goals .col-lg-4:nth-child(4) { padding-right: 0 !important;}
+
+.inp_ch_head{ float:left; width:160px; float: left; margin-right: 20px; margin-left: 10px;}
+.inp_ch_head input[type="checkbox"]{ width:20px; float: left; margin: 0;}
+.inp_ch_head .caption {margin: 2px 0 0 10px;}
+
+td.tools {width: 17px;}

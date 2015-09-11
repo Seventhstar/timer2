@@ -12,15 +12,13 @@
 
     <tbody>
      <% @cur_goals.each do |goal| %>
-     <tr class="<%= goal.fixed ? "checked" :"" %>">
+     <tr class="<%= goal.fixed ? "checked" :"" %> <%= goal.personal ? "personal" :"" %>">
      <td class="td_chk"><span class="check_img <%= goal.fixed ? "checked" :"" %>" item_id="<%= goal.id%>" chk="fixed"></span> </td>
       <td><%= goal.name %></td>
       <% if @header!='Сегодня' %>
         <td><%= goal.start_date.try('strftime','%d.%m.%y') %></td>
       <% end -%>
-      <td class="edit_delete">
-       
-       <span class="icon edit" item_id="<%= goal.id %>"></span>
+      <td class="tools">
        <span class="btn-toolbar icon btn-toolbar-light left" item_id="<%= goal.id %>"></span>
      </td>
 
