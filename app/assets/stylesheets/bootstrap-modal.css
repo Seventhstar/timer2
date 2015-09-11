@@ -16,9 +16,7 @@
 .modal-open.page-overflow .page-container,
 .modal-open.page-overflow .page-container .navbar-fixed-top,
 .modal-open.page-overflow .page-container .navbar-fixed-bottom,
-.modal-open.page-overflow .modal-scrollable {
-	overflow-y: scroll;
-}
+.modal-open.page-overflow .modal-scrollable {overflow-y: scroll;}
 
 @media (max-width: 979px) {
 	.modal-open.page-overflow .page-container .navbar-fixed-top,

@@ -7,11 +7,11 @@ SimpleNavigation::Configuration.run do |navigation|
   #navigation.renderer = Your::Custom::Renderer
 
   # Specify the class that will be applied to active navigation items. Defaults to 'selected' 
-  #navigation.selected_class = 'selected'
+  navigation.selected_class = 'selected'
 
   # Specify the class that will be applied to the current leaf of
   # active navigation items. Defaults to 'simple-navigation-active-leaf'
-  #navigation.active_leaf_class = 'simple-navigation-active-leaf'
+  navigation.active_leaf_class = 'active'
 
   # Specify if item keys are added to navigation items as id. Defaults to true
   #navigation.autogenerate_item_ids = true
@@ -37,6 +37,7 @@ SimpleNavigation::Configuration.run do |navigation|
   # If this option is set to true, all item names will be considered as safe (passed through html_safe). Defaults to false.
   #navigation.consider_item_names_as_safe = false
 
+    
   # Define the primary navigation
   navigation.items do |primary|
     # Add an item to the primary navigation. The following params apply:
@@ -56,8 +57,8 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
-
-    primary.item :whouses, 'Обращения', '/used_times'
+    root_class = request.url==root_url ? "selected active" : ""
+    primary.item :whouses, 'Обращения', '/used_times', html: {class: root_class}
     primary.item :whouses, 'Задачи', '/goals' 
 
     primary.item :options,image_tag('options.png'), '/options/'+opt_page, :html => {:class => 'li-right options'}, :class=> 'li-right', if: -> { current_user.admin? } #do |sub_nav|
