@@ -67,7 +67,9 @@ input[type="text"]:focus,input[type="number"]:focus,#datepicker:focus,textarea:f
 	
 	}
 
-.w260 { width: 260px;}
+.w80{width: 80%;}
+.w260 { width: 260px; }
+.w130 { width: 130px; margin-left: 10px;}
 
 .col-menu { position: relative; min-height: 1px; padding-left: 0; padding-right: 15px; width: 150; float: left; }
 
@@ -93,7 +95,7 @@ span.icon_cancel{background: url('cancel.png') no-repeat;}
 
 td.editable{padding: 5px !important; }
 
-.w80{width: 80%;}
+
 .margin_top_20{margin-top: 20px;}
 .items_box_head {  margin: 0 0 10px 0; min-height: 20px;}
 .combobox{ margin-left: 10px; margin-right: 0;}
@@ -115,12 +117,11 @@ td.editable{padding: 5px !important; }
 .inp_w{  float: left; margin-right: 20px;}
 .inp_ch input[type="text"]{ float: left; }
 
-span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;  background: url('uncheck.png') no-repeat;   width: 16px;  height: 16px;}
-span.check_img.checked{background: url('check-gr.png') no-repeat;}
+
 
 .td_chk{width: 16px;}
 
-tr.checked {color: #aaa; text-decoration: line-through;}
+
 .hl_a.bd {
     border-bottom: 2px solid #e5e5e5;
     padding: 0 0 16px 0;
