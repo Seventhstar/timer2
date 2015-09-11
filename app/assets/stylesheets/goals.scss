@@ -4,15 +4,15 @@
 
 .all_goals{	display: block; width: auto; overflow:auto; }
 tr.checked {color: #aaa; text-decoration: line-through;}
-tr.personal {background-color: #6C9897;  color: white;} //#638B8D;  839C99 - светлее - 9AADAF
-tr.personal:nth-child(odd){background-color: #638B8D !important;  color: white;}
-tr.personal td:first-child { padding-left: 20px;}
-.personal.checked{color: #ccc;}
+tr.work_goal {background-color: #6C9897;  color: white;} //#638B8D;  839C99 - светлее - 9AADAF
+tr.work_goal:nth-child(odd){background-color: #638B8D !important;  color: white;}
+tr.work_goal td:first-child { padding-left: 20px;}
+.work_goal.checked{color: #ccc;}
 
 span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;  background: url('uncheck.png') no-repeat;   width: 16px;  height: 16px;}
 span.check_img.checked{background: url('check-gr.png') no-repeat;}
-.personal span.check_img {background: url('uncheck-wh.png') no-repeat;}
-.personal span.check_img.checked {background: url('check-wh.png') no-repeat;}
+.work_goal span.check_img {background: url('uncheck-wh.png') no-repeat;}
+.work_goal span.check_img.checked {background: url('check-wh.png') no-repeat;}
 
 
 .all_goals .col-lg-4:nth-child(2) { padding-left: 0 !important;}
