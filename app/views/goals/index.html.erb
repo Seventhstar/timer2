@@ -2,6 +2,7 @@
 
 <%= form_for(@goal) do |f| %>
 <div class="itemAdd_form">
+  <div class="caption">Новая задача:</div>
   <div class="inp left w260"><%= f.text_field :name, :class => 'txt' %></div>
   <div class="inp left w130">
   <%= f.text_field :start_date,:value => Date.today.try('strftime',"%d.%m.%Y %H:%M"), label: false, class: "txt datepicker" %>
@@ -9,9 +10,8 @@
     <div class="inp_ch_head">
     <%= f.check_box :personal %>
     <div class="caption">Личная</div>
-    
   </div>
-  <span class="sub btn btn-min2 btn-success mrg_l right" id="btn-send"> Добавить</span>
+  <span class="sub btn btn-min2 btn-success mrg_l" id="btn-send"> Добавить</span>
 </div>
 
 <% end %>
