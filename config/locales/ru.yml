@@ -23,3 +23,6 @@ ru:
   name: Имя
   description: Описание
   start_date: Дата начала
+  new_UtType: Новый тип задачи
+  new_Otdel: Новый отдел
+  new_Task: Новая задача

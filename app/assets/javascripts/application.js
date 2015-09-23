@@ -59,15 +59,15 @@ var toggle_details = function(){
 
 var add_timer_function = function(){
 
-  $('.otdel').stopwatch().click( function(){ 
-      $(this).stopwatch('toggle','#demo2');
-
-
-      if ($(this).attr("started")==0){
+  $('.otdel').stopwatch().click( function(){
+      cur_btn = $('.started');
+      if (cur_btn.attr("started")==1){
+          cur_btn.stopwatch('toggle','#demo2');  
+          cur_btn.toggleClass('started active');
          $.ajax({
            url: "/ajax/save_last_time",
-           data: {'otdel':$(this).attr("otdel_id"),
-                  'last_time':$(this).attr("last_time"), 
+           data: {'otdel': cur_btn.attr("otdel_id"),
+                  'last_time':cur_btn.attr("last_time"), 
                   'ut_type_id':$('.btn.active').attr("type_id"),
                   'task_id': $(".task.active").attr('task_id') //$('#task_id_').attr('task_id')
                 },
@@ -76,9 +76,14 @@ var add_timer_function = function(){
            success: function(){
             $("#table_seconds").load("used_times #table_seconds > *",toggle_details);
             } 
+
          });
       };
-    
+      if ($(this).attr('otdel_id')!=cur_btn.attr('otdel_id')){
+        $(this).stopwatch('toggle','#demo2');
+        $(this).toggleClass('started active');
+      }
+
   });
 
 };
@@ -159,7 +164,7 @@ $(function() {
       	 beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},	 
       	 success: function(data, textStatus, jqXHR){
              $('#errormessage').load("used_times #errormessage > *");
-             fade_flash(); 
+             //fade_flash(); 
              $("#otdels_list").load("used_times #otdels_list > *",add_timer_function);             
              $("#name_otdel").val("");             
            },
@@ -181,7 +186,7 @@ $(function() {
          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},   
          success: function(data, textStatus, jqXHR){
              $('#errormessage').load("used_times #errormessage > *");
-             fade_flash(); 
+             //fade_flash(); 
              $("#tasks_list").load("used_times #tasks_list > *");             
              $("#name_task").val("");             
 

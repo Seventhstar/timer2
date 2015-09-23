@@ -26,6 +26,12 @@ class UsedTimesController < ApplicationController
     end
   end
 
+  def destroy
+    UsedTime.find(params[:id]).destroy
+    flash[:success] = "удален"
+    redirect_to used_times_url
+  end
+
   private
 
     def used_time_params

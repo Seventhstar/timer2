@@ -11,7 +11,7 @@
 <% @gr_otdel.each do |u_time| %>
   <tr class="group_row">
     <td><span class="plus opened" id="span-<%=u_time[0]%>">+</span><%= otdel_name(u_time[0]) %></td> 
-    <td class="time"><%= u_time[1] %></td>
+    <td class="time"><%= format_time(u_time[1]) %></td>
     <td></td>
   </tr>
 

@@ -74,7 +74,7 @@ white-space: nowrap;
 padding: 1px 10px;
 }
 
-.dropdown-menu-otdel > li > a:hover, .dropdown-menu-otdel > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+.dropdown-menu-otdel > li > a:hover, .dropdown-menu-otdel > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a,.dropdown-menu-otdel > li > a.active   {
 color: #ffffff;
 text-decoration: none;
 background-color: #0081c2;
@@ -92,8 +92,6 @@ $corner-radius: 4px;
   -o-border-radius: $corner-radius;
   -ms-border-radius: $corner-radius;
   -khtml-border-radius: $corner-radius;  
-
-    
     
 }
 
@@ -128,10 +126,10 @@ $corner-radius: 4px;
 }
 
 #new_otdel, #new_task{
-display: block;
+/*display: block;
 float: left;
 padding: 1px 1px 1px 1px;
-margin: 20px 1px 4px 0px;
+margin: 20px 1px 4px 0px;*/
 }
 
 #new_otdel span, #new_task span{

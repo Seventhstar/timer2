@@ -265,7 +265,7 @@ line-height: 20px;
 #new_otdel input, #new_task input{
 display: block;
 float: left;
-height: 16px;
+height: 24px;
 width: 168px;
 padding: 0px 0px;
 
@@ -289,12 +289,12 @@ padding: 1px 1px 1px 1px;
 display: block;
 float: left;
 margin: 0px 0px 0px 4px;
-border: 1px solid #CCC;
+//border: 1px solid #CCC;
 vertical-align: center;
 text-align: center;
 width: 24px;
-min-height: 16px;
-font-size: 0.8em;
+min-height: 24px;
+
 }
 
 .bs-docs {

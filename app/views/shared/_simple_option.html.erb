@@ -1,12 +1,11 @@
 <div class="col-md-8 option_content">
 
-<%= @a %>
 
-<div class="sep_05"></div>
 <%= form_for(@item) do |f| %>
 <div class="itemAdd_form">
-<label class="left"><%= new_item_header(@item.class.name) %>:</label>
-<div class="inp left"><%= f.text_field :name, :class => 'txt' %><span class="sub btn btn-min btn-success mrg_l" id="btn-send"> Добавить</span></div>
+<label class="left"><%= t("new_"+@item.class.name) %>:</label>
+<div class="inp left"><%= f.text_field :name, :class => 'txt' %></div>
+<span class="sub btn btn-min btn-success right" id="btn-send"> Добавить</span>
 </div>
 <% end %>
 
