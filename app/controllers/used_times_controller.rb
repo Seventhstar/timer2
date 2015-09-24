@@ -13,6 +13,8 @@ class UsedTimesController < ApplicationController
                            .where("DATE(created_at) = DATE(?) and user_id=?", Time.now, current_user)
                            .collect{ |rec| [rec.otdel_id, rec.time]}  
        p "gr_otdel",@gr_otdel
+       @opened = params[:op].nil? ? [] : params[:op].split(',').map{ |i| i.to_i } 
+       p @opened
 #where("DATE(created_at) = DATE(?)", Time.now) 
 #      @gr_otdel = UsedTime.where("DATE(created_at) = DATE(?)", Time.now)
 

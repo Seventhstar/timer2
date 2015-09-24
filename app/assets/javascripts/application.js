@@ -38,23 +38,19 @@ $( document ).ready(function() {
 
 var toggle_details = function(){
   $('span.plus').click(function(){
-    
     id = $(this).attr('id').substr(5);
-      //$('.children-'+id).slideToggle('slow');
-      $('.children-'+id).toggle('slow'); 
+      $('.children-'+id).toggle('fast'); 
      
-    if($('#span-'+id).hasClass('opened')) {
-     
+    if($('#span-'+id).hasClass('opened')) {     
       $('#span-'+id).removeClass('opened');
+      $('#span-'+id).text('+');      
+    } else {        
       $('#span-'+id).text('-');
-      
-    } else {
-        
-     $('#span-'+id).text('+');
-      $('#span-'+id).addClass('opened');
-      
+      $('#span-'+id).addClass('opened');      
     }
-  })
+    op = $('.opened').map(function() {return $( this ).attr('id').substr(5);}).get().join();
+    setLoc('used_times?op='+op.toString());
+  });  
 };
 
 var add_timer_function = function(){
@@ -74,8 +70,9 @@ var add_timer_function = function(){
            type: "POST",
            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},   
            success: function(){
-            $("#table_seconds").load("used_times #table_seconds > *",toggle_details);
-            } 
+            op = $('.opened').map(function() {return $( this ).attr('id').substr(5);}).get().join();
+            $("#table_seconds").load("used_times?op="+op+" #table_seconds > *",toggle_details);
+          } 
 
          });
       };

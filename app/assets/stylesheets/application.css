@@ -79,7 +79,7 @@ a.list-group-item { padding: 4px 10px; }
 span.icon, a.icon { width: 16px;  height: 16px; display: inline-block; vertical-align:middle; position:relative; }
 span.icon:hover{ cursor: pointer; }
 
-span.delete,span.toolbar-delete{ background: url('delete.png') no-repeat;  }
+span.delete,span.del,span.toolbar-delete{ background: url('delete.png') no-repeat;  }
 
 span.toolbar-right{ background: url('right.png') no-repeat;  }
 span.toolbar-down{ background: url('down.png') no-repeat;  }

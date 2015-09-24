@@ -5,30 +5,27 @@
     <th width="70px">Тип</th>
     <th width="30px"></th>
   </tr>
-
-
-
 <% @gr_otdel.each do |u_time| %>
+  
+  <% is_open = @opened.include?(u_time[0]) %>
+  <% opn_cls = is_open ? 'opened' : '' %>
+  <% disp_row = is_open ? 'table-row' : 'none' %>
+  <% plus = is_open ? '-' : '+' %>
+
   <tr class="group_row">
-    <td><span class="plus opened" id="span-<%=u_time[0]%>">+</span><%= otdel_name(u_time[0]) %></td> 
+    <td><span class="plus <%= opn_cls %>" id="span-<%=u_time[0]%>"><%= plus %></span><%= otdel_name(u_time[0]) %></td> 
     <td class="time"><%= format_time(u_time[1]) %></td>
     <td></td>
   </tr>
+  <% time_for_otdel(u_time[0]).each_with_index do |used_time,index| %>
+    <tr class="children-<%=u_time[0]%>" style="display: <%= disp_row %>;"> 
 
-
-<!-- .select(%w[seconds,created_at])-->
-<!-- -=index -->
-
-<% time_for_otdel(u_time[0]).each_with_index do |used_time,index| %>
-  <tr class="children-<%=u_time[0]%>" style="display: none;"> 
-    <td class="group_subrow"><%= used_time.created_at.localtime.to_s(:time) %></td>
-    <td class="time"><%= format_time(used_time.seconds) %></td>
-    <td class="time"><% p used_time %><%= used_time.ut_type_name %></td>
-    <td class="time"><%= link_to image_tag('delete.png'), used_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-
-
+      <td class="group_subrow"><%= used_time.created_at.localtime.to_s(:time) %></td>
+      <td class="time"><%= format_time(used_time.seconds) %></td>
+      <td class="time"><% p used_time %><%= used_time.ut_type_name %></td>
+      <%= td_span_delete(used_time,1,"time") %>
+    </tr>
+  <% end %>
 <% end %>
 </table>
 <br />

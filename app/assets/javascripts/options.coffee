@@ -6,7 +6,7 @@ $(document).ready ->
 # удаляем элемент справочника
   $(document).on 'click', 'span.delete', ->
     #url = $('form').attr('action')
-    url = '/'+$('form').attr('action').split('/')[1]      
+    url = '/'+$('form').attr('action').split('/')[1]        
     item_id = $(this).attr('item_id')
     del_url = url + '/' + item_id
     del = confirm('Действительно удалить?')
@@ -18,7 +18,7 @@ $(document).ready ->
       dataType: 'json'
       type: 'POST'
       complete: ->
-        $.get url, null, null, 'script'
+        $.get url, null, null, 'script'        
         return
     return
 
