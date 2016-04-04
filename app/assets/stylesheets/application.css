@@ -48,9 +48,7 @@ input[type="text"]:focus,input[type="number"]:focus,#datepicker:focus,textarea:f
 .li-right, .right {  float: right !important;  margin-top: 0 !important; }
 .fullwidth{ width: 100%;}
 
-.navbar-inverse .navbar-nav>li>a {color: #aaa;}
-.navbar-inverse{ background: asset-url("menu_bg_dark.png");}
-.navbar-nav {height: 50px;}
+
 
 
 

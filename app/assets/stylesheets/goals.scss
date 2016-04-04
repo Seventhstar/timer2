@@ -42,3 +42,8 @@ span.icon_apply{background: asset-url('apply.png') no-repeat;}
 span.icon_cancel{background: asset-url('cancel.png') no-repeat;}
 
 .edit_delete .btn-toolbar {margin-top: 1px;}
+
+.btn-toolbar { width: 20px;  height: 20px;  text-align: center;  padding: 10px;  display: block;  transition: none;}
+.btn-toolbar > i { color: #02baf2; font-size: 16px;}
+.btn-toolbar-light { background: asset-url('gear.png') no-repeat; }
+.btn-toolbar-info-o > i {  color: white; }

@@ -55,3 +55,7 @@ div {
 .signin a:nth-child(2) { float: right;}
 .signin .btn { width: 100%; }
 .signin input{margin-bottom: 10px;}
+
+.navbar-inverse .navbar-nav>li>a {color: #aaa;}
+.navbar-inverse{ background: asset-url("menu_bg_dark.png");}
+.navbar-nav {height: 50px;}
