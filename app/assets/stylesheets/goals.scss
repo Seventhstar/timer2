@@ -4,17 +4,17 @@
 
 .all_goals{	display: block; width: auto; overflow:auto; }
 tr.checked {color: #aaa; text-decoration: line-through;}
-tr.work_goal {background-color: #6C9897;  color: white;} //#638B8D;  839C99 - светлее - 9AADAF
-tr.work_goal:nth-child(odd){background-color: #95c2c4 !important;  color: white;}
+tr.work_goal {background-color:  #f5f9ea; color: #6a9001; }  //#6C9897 color: white; //#638B8D;  839C99 - светлее - 9AADAF
+tr.work_goal:nth-child(odd){background-color: #eaf4d3 !important;  } //#95c2c4 color: white;
 
 .all_goals td:first-child { padding-left: 20px;}
 tr.work_goal td:first-child { padding-left: 10px;}
-.work_goal.checked{color: #ccc;}
+.work_goal.checked{color: #adc07b;}
 
-span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;  background: url('uncheck.png') no-repeat;   width: 16px;  height: 16px;}
-span.check_img.checked{background: url('check-gr.png') no-repeat;}
-.work_goal span.check_img {background: url('uncheck-wh.png') no-repeat;}
-.work_goal span.check_img.checked {background: url('check-wh.png') no-repeat;}
+span.check_img {display: inline-block;  position:relative; cursor:pointer; overflow:hidden; vertical-align:top;  background: asset-url('uncheck.png') no-repeat;   width: 16px;  height: 16px;}
+span.check_img.checked{background: asset-url('check-gr.png') no-repeat;}
+.work_goal span.check_img {background: asset-url('uncheck-gr.png') no-repeat;}
+.work_goal span.check_img.checked {background: asset-url('check-green.png') no-repeat;}
 
 
 .all_goals .col-lg-4:nth-child(2) { padding-left: 0 !important;}
@@ -25,3 +25,20 @@ span.check_img.checked{background: url('check-gr.png') no-repeat;}
 .inp_ch_head .caption {margin: 2px 0 0 10px;}
 
 td.tools {width: 17px;}
+
+span.icon, a.icon { width: 16px;  height: 16px; display: inline-block; vertical-align:middle; position:relative; }
+span.icon:hover{ cursor: pointer; }
+
+span.delete,span.del,span.toolbar-delete{ background: asset-url('delete.png') no-repeat;  }
+
+span.toolbar-right{ background: asset-url('right.png') no-repeat;  }
+span.toolbar-down{ background: asset-url('down.png') no-repeat;  }
+span.toolbar-work{ background: asset-url('work.png') no-repeat;  }
+
+span.edit {background: asset-url('_edit.png') no-repeat;}
+span.toolbar-edit {background: asset-url('edit.png') no-repeat;}
+
+span.icon_apply{background: asset-url('apply.png') no-repeat;}
+span.icon_cancel{background: asset-url('cancel.png') no-repeat;}
+
+.edit_delete .btn-toolbar {margin-top: 1px;}

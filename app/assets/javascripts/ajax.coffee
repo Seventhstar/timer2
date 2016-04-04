@@ -15,6 +15,7 @@
   str.push encodeURIComponent(param) + '=' + encodeURIComponent(value)
   a.search = (if a.search.substring(0, 1) == '?' then '' else '?') + str.join('&')
   a.href
+  return
 
 
 
@@ -29,24 +30,26 @@
       success: ->
         disable_input(false)
         show_ajax_message('успешно','notice')
+        return
      return
 
 
 @disable_input = (cancel=true) -> 
- item_id = $('.icon_apply').attr('item_id')
- $cells = $('.editable')
- $cells.each ->
-  _cell = $(this)
-  _cell.removeClass('editable')
-  if cancel
-    _cell.html _cell.attr('last_val')
-  else
-    _cell.html _cell.find('input').val()    
-  return
+  item_id = $('.icon_apply').attr('item_id')
+  $cells = $('.editable')
+  $cells.each ->
+    _cell = $(this)
+    _cell.removeClass('editable')
+    if cancel
+      _cell.html _cell.attr('last_val')
+    else
+      _cell.html _cell.find('input').val()    
+    return
  
- $cell = $('td.app_cancel')  
- $cell.removeClass('app_cancel')
- $cell.html '<span class="icon edit" item_id="'+item_id+'"></span><span class="icon delete" item_id="'+item_id+'"></span>' 
+  $cell = $('td.app_cancel')  
+  $cell.removeClass('app_cancel')
+  $cell.html '<span class="icon edit" item_id="'+item_id+'"></span><span class="icon delete" item_id="'+item_id+'"></span>' 
+  return
 
 $(document).ready ->
 
@@ -92,15 +95,31 @@ $(document).ready ->
     $cell = $row.children('td.edit_delete')  
     $cell.addClass('app_cancel')
     $cell.html '<span class="icon icon_apply" item_id="'+item_id+'"></span><span class="icon icon_cancel" item_id="'+item_id+'"></span>'
+    return
     
-   # отмена редактирования
-   $('.container').on 'click', 'span.icon_cancel', ->   
+  # отмена редактирования
+  $('.container').on 'click', 'span.icon_cancel', ->   
      disable_input()
+     return
 
-   # отправка новых данных
-   $('.container').on 'click', 'span.icon_apply', ->  
-     model = $(this).closest('table').attr('model')
-     item_id = $(this).attr('item_id')
-     inputs = $('input[name^=upd]')
-     upd_param(inputs.serialize()+'&model='+model+'&id='+item_id)
+  $('#goal_name').focus()
+
+  # отправка новых данных
+  $('.container').on 'click', 'span.icon_apply', ->  
+    model = $(this).closest('table').attr('model')
+    item_id = $(this).attr('item_id')
+    inputs = $('input[name^=upd]')
+    upd_param(inputs.serialize()+'&model='+model+'&id='+item_id)
+    return
+
+  $('body').on 'keyup keypress', '#goal_name',(e) ->
+    code = e.keyCode or e.which
+    if e.type == 'keyup'
+      if code == 13
+        e.preventDefault()
+        $('#btn-send').trigger 'click'
+      else if code == 32 && e.ctrlKey
+        $('#goal_personal').trigger 'click'
+      return
+  return
      

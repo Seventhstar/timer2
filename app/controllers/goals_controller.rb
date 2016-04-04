@@ -1,14 +1,15 @@
 class GoalsController < ApplicationController
   respond_to :html, :json
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:update]
 
   # GET /goals
   # GET /goals.json
   def index
     @goals = Goal.all
-    @goals_today = Goal.where("start_date between ? and ?",Date.today, DateTime.now.end_of_day )
-    @goals_past = Goal.where("start_date < ? ",Date.today ).where.not(fixed: true)
-    @goals_next = Goal.where("start_date > ?",DateTime.now.end_of_day )
+    @goals_today = Goal.where("start_date between ? and ?",Date.today, DateTime.now.end_of_day ).order(:sort_order)
+    @goals_past = Goal.where("start_date < ? ",Date.today ).where.not(fixed: true).order(:sort_order)
+    @goals_next = Goal.where("start_date > ?",DateTime.now.end_of_day ).order(:sort_order)
     @item = Goal.first
     @goal = Goal.new
   end
@@ -71,6 +72,19 @@ class GoalsController < ApplicationController
   end
 
   private
+
+    def set_order
+      goals = Goal.where("start_date between ? and ?",Date.today, DateTime.now.end_of_day ).order(:sort_order)
+      i = 0
+      goals.each do |g|
+        i+=1
+        if g.sort_order!=i 
+           g.sort_order=i
+           g.save
+        end
+      end
+      
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
       @goal = Goal.find(params[:id])
@@ -78,6 +92,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:name, :description, :user_id, :fixed, :personal, :start_date)
+      params.require(:goal).permit(:name, :description, :user_id, :fixed, :personal, :start_date, :goal, :sort_order)
     end
 end
