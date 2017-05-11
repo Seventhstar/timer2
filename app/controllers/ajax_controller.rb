@@ -1,5 +1,17 @@
 class AjaxController < ApplicationController
 
+	def goal_sort
+		ol = params[:order_list]
+		i = 0
+		ol[1..-1].each do |oi|
+			goal = Goal.find(oi)
+			goal.sort_order = i
+			goal.save
+			i = i + 1
+		end
+
+		render :nothing => true
+	end
 
   def goal_today
 

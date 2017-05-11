@@ -35,7 +35,20 @@ $( document ).ready(function() {
     showNotifications();
 });
 
-
+var init_DnD = function(){
+  $('.table-striped').tableDnD({
+         onDrop: function(table, row) {
+             var d = $.tableDnD.serialize();
+              $.ajax({
+               url: "/ajax/goal_sort",
+               data: {'order_list':q2ajx(d)},
+               type: "POST",
+               beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},   
+               error: function (data, textStatus, jqXHR) {  }
+            });
+         }        
+    });
+}
 
 
 var toggle_details = function(){
@@ -58,11 +71,7 @@ var toggle_details = function(){
 var add_timer_function = function(){
 
   // $(".table-striped").tableDnD();
-  $('.table-striped').tableDnD({
-         onDrop: function(table, row) {
-             alert($.tableDnD.serialize());
-         }        
-    });
+  
 
     $(".table-striped tr").hover(function() {
           $(this.cells[0]).addClass('showDragHandle');
@@ -115,6 +124,7 @@ $(function() {
     speed: 300
   });
 
+  init_DnD();
   NProgress.start();
   NProgress.done();
 
@@ -161,6 +171,7 @@ $(function() {
 
   $( document ).ajaxStart(function() {
       NProgress.start();
+      init_DnD();
   });  
   $( document ).ajaxStop(function() {
     $('table.tableSorter').tableSort();

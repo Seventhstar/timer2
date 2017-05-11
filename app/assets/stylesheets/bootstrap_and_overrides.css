@@ -22,3 +22,5 @@ label {margin-right: 10px;}
      padding-left: 0; 
      padding-right: 0; 
 }
+.table>thead>tr>th {border-bottom: 1px solid #ddd;}
+.table.table-striped{width: 99.9%}

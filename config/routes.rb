@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   post "ajax/upd_param"
   post "ajax/goal_today"
   post "ajax/goal_tomorrow"
+  post "ajax/goal_sort"
   root :to => "goals#index"
 
 
