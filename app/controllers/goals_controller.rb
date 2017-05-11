@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   respond_to :html, :json
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
   before_action :set_order, only: [:update]
+  before_action :logged_in_user
 
   # GET /goals
   # GET /goals.json
@@ -92,6 +93,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:name, :description, :user_id, :fixed, :personal, :start_date, :goal, :sort_order)
+      params.require(:goal).permit(:name, :description, :user_id, :fixed, :personal, :start_date, :goal, :sort_order, :priority_id)
     end
 end

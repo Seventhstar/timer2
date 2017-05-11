@@ -57,4 +57,6 @@ $(document).ready ->
   $('.btn-toolbar').on 'toolbarItemClick', (e, el) ->
     toolbar_pressed(e,el)
     return
-  
+  $('.work_goal').click ->
+    $('.work_goal').removeClass('selected')
+    $(this).addClass('selected')

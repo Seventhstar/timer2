@@ -51,7 +51,51 @@ div {
     font-size: 12px;
     list-style: square; } }
 
-.signin {  max-width: 500px;  padding: 20px 50px;  margin: 0px auto;  background: #F9F9F9;  border-radius: 5px;  margin-top: 30px;}
+#signin_options{
+  //height: 100px;
+  width: 100%;
+  line-height: 40px;
+  white-space: nowrap;
+  //display: table-cell; vertical-align: middle;
+  //border: 1px solid black;
+}
+
+#signin_options label{ margin: 0; font-weight: normal;}
+#signin_options .checkbox { margin: 3px 5px 0 20px; cursor: pointer;}
+
+.sign-container{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    overflow: auto;   
+}
+
+#session_remember_me{width: 20px; margin-top: 5px;}
+
+ .signin {  
+  width: 500px;  
+  padding: 20px 50px;  
+  margin: 0px auto;  
+  background: #F9F9F9;  
+  border-radius: 5px;
+  //  margin-top: 30px;
+
+   
+  //   height: 100%;
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center; 
+  //   overflow: auto;   
+
+}
 .signin a:nth-child(2) { float: right;}
 .signin .btn { width: 100%; }
 .signin input{margin-bottom: 10px;}
@@ -59,3 +103,5 @@ div {
 .navbar-inverse .navbar-nav>li>a {color: #aaa;}
 .navbar-inverse{ background: asset-url("menu_bg_dark.png");}
 .navbar-nav {height: 50px;}
+
+

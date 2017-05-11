@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :ut_types
   resources :tasks
   resources :otdels
+  resources :priorities
 
   resources :users
   get    'signup'  => 'users#new'
@@ -14,7 +15,9 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   get    'options'  => 'options#edit'
-  get    'options/:options_page'  => 'options#edit'
+  get    'options/:options_page'  => 'options#edit',:constraints => {:format => /(json|html)/}
+  post   'options/:options_page' => 'options#create'
+  delete 'options/:options_page/:id' => 'options#destroy'
 
   post "ajax/save_last_time"
   post "ajax/save_new_otdel"
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
   post "ajax/upd_param"
   post "ajax/goal_today"
   post "ajax/goal_tomorrow"
-  root :to => "used_times#index"
+  root :to => "goals#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

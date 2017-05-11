@@ -61,7 +61,9 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :whouses, 'Обращения', '/used_times', html: {class: root_class}
     primary.item :whouses, 'Задачи', '/goals' 
 
-    primary.item :options,image_tag('options.png'), '/options/'+opt_page, :html => {:class => 'li-right options'}, :class=> 'li-right', if: -> { current_user.admin? } #do |sub_nav|
+    primary.item :logout, image_tag('logout.png'),logout_path, method: :delete, class: "orange logout li-right" 
+    primary.item :options,image_tag('options.png'), '/options/'+opt_page, :class=> 'li-right', if: -> { current_user.admin? } #do |sub_nav|
+
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.
     # Conditions are part of the options. They are evaluated in the context of the views,

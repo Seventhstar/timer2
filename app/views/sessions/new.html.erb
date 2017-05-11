@@ -1,4 +1,5 @@
 <% provide(:title, 'Log in') %>
+<div class="sign-container">
 <div class="signin">
 <h2>Вход</h2>
 
@@ -11,15 +12,21 @@
       
       <%= f.password_field :password, class: 'form-control' %>
       
-        <%= f.check_box :remember_me %>
-        <span>Запомнить меня</span>
+      <div id="signin_options">
 
-      
+        <label class="inp_btn_label">
+              <div class="inp_btn checkbox active"><input name="session[remember_me]" type="hidden" value="0">
+              <input type="checkbox" value="1" name="session[remember_me]" id="session_remember_me"></div>Запомнить меня</label>
+
+        <%= link_to "Регистрация", signup_path, class: 'right' %>
+      </div>
+
       <%= f.submit "Войти", class: "btn btn-primary" %>
     <% end %>
     
     
     <p>
-  <%= link_to "Регистрация", signup_path %>
+  
   </p>
+</div>
 </div>

@@ -11,6 +11,9 @@
     <%= f.check_box :personal %>
     <div class="caption">Личная</div>
   </div>
+  <div class="inp_w" style="width: 120px;"><%= chosen_src :priority_id, Priority.all, @goal %></div>
+  
+  <!-- < f.collection_select(:priorities, Priority.all, :id, :name, {}, {multiple: true,  class: "chosen-select", :include_blank => 'None'}) %> -->
   <span class="sub btn btn-min2 btn-success mrg_l" id="btn-send"> Добавить</span>
 </div>
 

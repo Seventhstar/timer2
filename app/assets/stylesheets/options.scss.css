@@ -1,0 +1,4 @@
+.icon,li.icon a {display: inline-block; vertical-align:middle; position:relative; margin: 0 2px;}
+.icon_remove {background: url('delete.png'); width: 15px; height: 15px; cursor: pointer;}
+.icon_remove.disabled { }
+.icon_edit {background: url('edit.png'); width: 15px; height: 15px; cursor: pointer;}

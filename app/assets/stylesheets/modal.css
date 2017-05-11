@@ -9,3 +9,11 @@ button.close { -webkit-appearance: none; padding: 0; cursor: pointer; background
 .modal-header { min-height: 16px;}
 .modal-content{ padding: 40px; }
 
+
+td.showDragHandle {
+	background-image: url('updown2.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: move;
+	margin-left: -5px;
+}

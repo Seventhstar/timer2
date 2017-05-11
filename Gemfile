@@ -5,10 +5,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 
 group :development, :test do
-  gem 'sqlite3',     '1.3.10'
+  gem 'sqlite3',     '1.3.11'
   gem 'coffee-script-source', '1.8.0'
 end
 
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -44,14 +45,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  #gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :ruby]
 gem 'simple_form'
 gem 'bcrypt'
 gem 'twitter-bootstrap-rails'
@@ -59,3 +60,6 @@ gem 'simple-navigation-bootstrap'
 gem 'responders'
 gem 'spinjs-rails'
 gem 'nprogress-rails'
+gem 'yaml_db'
+gem 'nokogiri'
+gem 'tzinfo-data'

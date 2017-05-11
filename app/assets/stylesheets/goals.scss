@@ -47,3 +47,7 @@ span.icon_cancel{background: asset-url('cancel.png') no-repeat;}
 .btn-toolbar > i { color: #02baf2; font-size: 16px;}
 .btn-toolbar-light { background: asset-url('gear.png') no-repeat; }
 .btn-toolbar-info-o > i {  color: white; }
+
+.work_goal{  border: 1px solid #f5f9ea;}
+.work_goal.selected,.work_goal.tDnD_whileDrag{  border: 1px solid #037b00;}
+.work_goal.selected td,.work_goal.tDnD_whileDrag td { border-top: 1px solid #037b00; border-bottom: 1px solid #037b00;}

@@ -1,19 +1,30 @@
 <div class="options-menu">
 <div class="col-menu">
 
-	<div class="panel panel-default">
-	<div class="panel-heading">Обращения:</div>
-			<%= option_link("tasks","Задачи") %>
-			<%= option_link("otdels","Отделы") %>
-			<%= option_link("ut_types","Типы задач") %>
+  <ul class="accordion"> 
+    <li id="one3" class="files">
+    <a href="#">Обращения:</a>
+      <ul class="sub-menu">
+    			<%= option_li("tasks","Действия") %>
+    			<%= option_li("otdels","Отделы") %>
+    			<%= option_li("ut_types","Типы") %>
+      </ul>
+    </li>
+   
+   <li id="two" class="files">
+    <a href="#">Задачи:</a>
+    <ul class="sub-menu">
+			    <%= option_li("priorities","Приоритеты") %>
+          <%= option_li("slo","Сложность") %>
+    </ul>
+   </li>
 
-  </div>
+  </ul>
 </div>
 
-<div class="content">
-	<%= render @page_render %>
+<div class="content col-md-8">
+	  <%= render("shared/simple_option") %>
 <div class="sep_3"></div>
 </div>
 
-</div>
 </div>

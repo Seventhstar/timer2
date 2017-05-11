@@ -21,5 +21,11 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+    adapter: postgresql
+    database: timer
+    host: localhost
+    username: postgres
+    password: pf,fdyj
+    pool: 5
+    port: 5432
+    timeout: 5000
