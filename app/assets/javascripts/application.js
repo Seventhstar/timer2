@@ -74,9 +74,9 @@ var add_timer_function = function(){
   
 
     $(".table-striped tr").hover(function() {
-          $(this.cells[0]).addClass('showDragHandle');
+          $(this.cells[1]).addClass('showDragHandle');
     }, function() {
-          $(this.cells[0]).removeClass('showDragHandle');
+          $(this.cells[1]).removeClass('showDragHandle');
     });
   // $('#table-5').tableDnD({
   //       onDrop: function(table, row) {
